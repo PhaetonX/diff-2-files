@@ -1,2 +1,5 @@
-# diff-2-files
-Diff 2 files application
+# diff 2 files application
+
+- green - same value
+- yellow - first file unique
+- blue - second file unique
