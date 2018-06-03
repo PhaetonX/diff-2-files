@@ -66,14 +66,14 @@ class DiffFiles extends Component {
     const firstFilleInner = firstFileArray.map((el, i) =>  <li 
             className = 'file-item'
             key = {i}>
-                <span className = {el !== secondFileArray[i] ? 'file-item-first-unicue' : 'file-item-first-already'}>{el}</span>
+                <span className = {el !== secondFileArray[i] ? 'file-item-first-unique' : 'file-item-first-already'}>{el}</span>
             </li>
     )
 
     const secondFileInner = secondFileArray.map((el, i) => <li 
             className = 'file-item'
             key = {i} >
-                <span  className = {el !== firstFileArray[i] ? 'file-item-second-unicue' : 'file-item-second-already'}>{el}</span>
+                <span  className = {el !== firstFileArray[i] ? 'file-item-second-unique' : 'file-item-second-already'}>{el}</span>
              </li>
     )
 
