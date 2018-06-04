@@ -15,14 +15,14 @@ function FilesDiffer(props) {
             key = {i}>
                 <span className = {el !== secondFileArray[i] ? 'file-item-first-unique' : 'file-item-first-already'}>{el}</span>
             </li>
-    )
+    );
 
     const secondFileInner = secondFileArray.map((el, i) => <li 
             className = 'file-item'
             key = {i} >
                 <span  className = {el !== firstFileArray[i] ? 'file-item-second-unique' : 'file-item-second-already'}>{el}</span>
-             </li>
-    )
+            </li>
+    );
 
     return (
         <div className = 'compare-container'>
@@ -37,7 +37,7 @@ function FilesDiffer(props) {
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default FilesDiffer;

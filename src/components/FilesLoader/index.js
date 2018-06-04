@@ -7,6 +7,8 @@ class FilesLoader extends Component {
     state = {
         firstFileInner: '',
         secondFileInner: '',
+        CompareFirst: '',
+        CompareSecond: ''
     }
     render() {
         return (
@@ -14,11 +16,11 @@ class FilesLoader extends Component {
                 <form>
                     <div className = 'compare-menu'>
                         <label htmlFor = 'firstFile' >
-                            <span className = 'compare-menu__file-titles'>First file: </span>
+                            <div className = 'compare-menu__file-titles'>First file: </div>
                             <input type="file" accept="text/plain" onChange = {this.handleLoadFile}  id = 'firstFile' />
                         </label>
                         <label htmlFor = 'secondFile' > 
-                            <span className = 'compare-menu__file-titles'> Second file: </span>
+                            <div className = 'compare-menu__file-titles'> Second file: </div>
                             <input type="file" accept="text/plain" onChange = {this.handleLoadFile} id = 'secondFile' />
                         </label>
                         <button onClick = {this.handleCompare(this.state.firstFileInner, this.state.secondFileInner)} > Compare </button>
