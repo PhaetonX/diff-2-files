@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import { hot } from 'react-hot-loader';
-import DiffFiles from './DiffFiles'
+import FilesLoader from './FilesLoader'
 
 class App extends Component {
     render() {
 
         return (
             <div>
-               <DiffFiles/>
+               <FilesLoader/>
             </div>
         )
     }
