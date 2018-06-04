@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import FilesDiffer from '../FilesDiffer';
 import './style.sass';
 
-class DiffFiles extends Component {
+
+class FilesLoader extends Component {
     state = {
         firstFileInner: '',
         secondFileInner: '',
-        CompareFirst: '',
-        CompareSecond: '',
     }
     render() {
         return (
@@ -23,7 +23,7 @@ class DiffFiles extends Component {
                         </label>
                         <button onClick = {this.handleCompare(this.state.firstFileInner, this.state.secondFileInner)} > Compare </button>
                     </div>
-                    {this.getBodyCompared(this.state.CompareFirst, this.state.CompareSecond)}
+                    <FilesDiffer firstFile = {this.state.CompareFirst} secondFile = {this.state.CompareSecond} />
                 </form>
             </div>
         );
@@ -39,59 +39,22 @@ class DiffFiles extends Component {
                 currentInput === 'firstFile' ? this.setState({firstFileInner: e.target.result}) : this.setState({secondFileInner: e.target.result})
          
             };
-
             reader.readAsText(event.target.files[0]);
-           
         }
     } 
 
+
     handleCompare = (firstInner,secondInner) => (ev) => {
         ev.preventDefault();
-        if ( this.state.firstFileInner && this.state.secondFileInner) {
+
+        if (this.state.firstFileInner && this.state.secondFileInner) {
             this.setState({
                 CompareFirst: firstInner,
                 CompareSecond: secondInner
             })
         } else 
         return alert('Please load 2 files')
-
-    }
-
-    getBodyCompared = (firstFile, SecondFile) => {
-    if (!firstFile && !SecondFile) return
-
-    const firstFileArray = firstFile.split('\n');
-    const secondFileArray = SecondFile.split('\n');
-
-    const firstFilleInner = firstFileArray.map((el, i) =>  <li 
-            className = 'file-item'
-            key = {i}>
-                <span className = {el !== secondFileArray[i] ? 'file-item-first-unique' : 'file-item-first-already'}>{el}</span>
-            </li>
-    )
-
-    const secondFileInner = secondFileArray.map((el, i) => <li 
-            className = 'file-item'
-            key = {i} >
-                <span  className = {el !== firstFileArray[i] ? 'file-item-second-unique' : 'file-item-second-already'}>{el}</span>
-             </li>
-    )
-
-        return (
-            <div className = 'compare-container'>
-                <div className = 'file-container file-container__first'>
-                    <ul className = 'file-list file-list__first'>
-                        {firstFilleInner}
-                    </ul>
-                </div>
-                <div className = 'file-container file-container__second'>
-                    <ul className = 'file-list file-list__second'>
-                        {secondFileInner}
-                    </ul>
-                </div>
-            </div>
-        )
     }
 }
 
-export default DiffFiles;
+export default FilesLoader;
